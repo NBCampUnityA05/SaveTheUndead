@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICharacter
 {
-    protected void CharacterAttack();
+    protected void AttackCharacter();
     protected void TakeDamage();
 
 }
