@@ -1,4 +1,7 @@
 # SaveTheUndead
+
+어느 날 당신은 좀비가 되었습니다! 인간들의 공격을 피하며 최대한 버티세요! 
+
 유니티를 이용한 Dodge like + VampireSurvivors like 게임
 **************
 
