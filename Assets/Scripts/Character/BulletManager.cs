@@ -9,6 +9,8 @@ public class BulletManager : MonoBehaviour
     public List<Bullet> BulletsList { get; private set; }
 
     [SerializeField] private GameObject bulletPrefabs;
+    
+    public Camera mainCamera; // 임시 카메라 참조용
 
     private void Awake()
     {
@@ -17,7 +19,7 @@ public class BulletManager : MonoBehaviour
 
     private void Start()
     {
-        
+        BulletsList = new List<Bullet>();
     }
 
     private void Update()
@@ -27,6 +29,14 @@ public class BulletManager : MonoBehaviour
 
     public void ShotBullet(Vector3 spawnPos)
     {
-        Instantiate(bulletPrefabs, spawnPos, Quaternion.identity);
+        GameObject go = Instantiate(bulletPrefabs, spawnPos, Quaternion.identity);
+        Bullet bullet = go.GetComponent<Bullet>();
+        BulletsList.Add(bullet);
+    }
+
+    public void DestroyBullet(Bullet bullet)
+    {
+        BulletsList.Remove(bullet);
+        Destroy(bullet.gameObject);
     }
 }
