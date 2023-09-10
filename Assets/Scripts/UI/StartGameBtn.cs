@@ -8,6 +8,7 @@ public class StartGameBtn : MonoBehaviour
 
     public void OnClickedCharcterSelectBG()
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         characterSelectBG.SetActive(true);
     }
 }
