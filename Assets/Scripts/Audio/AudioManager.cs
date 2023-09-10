@@ -24,6 +24,8 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         Init();
+        // MainScene으로 넘어가도 파괴되지 않게 설정.
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Start()
