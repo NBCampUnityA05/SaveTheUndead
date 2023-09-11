@@ -9,6 +9,7 @@ public class BulletManager : MonoBehaviour
 
     [SerializeField] private GameObject enemyBulletPrefabs;
     [SerializeField] private GameObject playerBulletPrefabs;
+    [SerializeField] private GameObject potionPrefabs;
 
     public Camera mainCamera; // 임시 카메라 참조용
 
@@ -19,6 +20,11 @@ public class BulletManager : MonoBehaviour
 
     public void ShotEnemyBullet(Vector3 spawnPos)
     {
+        if (Random.Range(0, 100) >= 97)
+        {
+            Instantiate(potionPrefabs, spawnPos, Quaternion.identity);
+            return;
+        }
         Instantiate(enemyBulletPrefabs, spawnPos, Quaternion.identity);
     }
 }

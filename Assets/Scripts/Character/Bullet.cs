@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour,ICharacter
 
     protected virtual void Start()
     {
-        speed = Random.Range(1.5f, 3f);
     }
     protected void FixedUpdate()
     {
@@ -21,6 +20,15 @@ public class Bullet : MonoBehaviour,ICharacter
     protected void Update()
     {
         CheckOutScreen();
+    }
+    protected void RotateBullet(Vector3 pos)
+    {
+        moveDirection = (pos - transform.position).normalized; // 임시로 EnemyManager 참조
+
+        float rotZ = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg + Random.Range(-80f, 80f);
+        moveDirection = Quaternion.AngleAxis(rotZ, Vector3.up) * moveDirection;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
     }
 
     protected void MoveBullet()
@@ -36,11 +44,11 @@ public class Bullet : MonoBehaviour,ICharacter
             Destroy(gameObject);
         }
     }
-    public void AttackCharacter()
+    public virtual void AttackCharacter()
     {
         Destroy(gameObject);
     }
-    public void TakeDamage()
+    public virtual void TakeDamage()
     {
         Destroy(gameObject);
     }

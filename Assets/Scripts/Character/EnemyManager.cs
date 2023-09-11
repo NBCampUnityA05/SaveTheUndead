@@ -59,7 +59,6 @@ public class EnemyManager : MonoBehaviour
             mapList.Add(temp);
         }
     }
-
     public void SpawnEnemy()
     {
         if (mapList.Count == 0) 
@@ -71,7 +70,6 @@ public class EnemyManager : MonoBehaviour
         GameObject go = Instantiate(enemyPrefabs, FindEmptyPos(), Quaternion.identity);
         Enemies.Add(go.GetComponent<Enemy>());
     }
-
     public Vector3 FindEmptyPos()
     {
         int index = UnityEngine.Random.Range(0, mapList[0].Count);

@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class EnemyBullet : Bullet
+public class Potion : Bullet
 {
     protected override void Start()
     {
-        speed = Random.Range(1f, 4f);
+        speed = 10f;
         RotateBullet(EnemyManager.Instance.player.transform.position);
     }
 
@@ -19,4 +18,5 @@ public class EnemyBullet : Bullet
             //collision.gameObject.GetComponent<ICharacter>().TakeDamage();
         }
     }
+
 }
