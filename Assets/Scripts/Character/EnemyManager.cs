@@ -7,81 +7,65 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; private set; }
 
-    public List<Enemy> EnemeisList { get; private set; }
-
     public GameObject player; // 임시 플레이어 참조용
 
     [SerializeField] private GameObject enemyPrefabs;
 
-    bool[,] map = new bool[12,24];
-
-    int emptySlot = 288;
-
-    // 생성되는 칸을 한칸을 1f x 1f로 잡는다면?
-
-    // 현재 가로줄 25f 길이, 세로줄은 12.5f 길이임
-
-    // 그러면 배열을 bool[25][50] 으로 만듬
-
-    // 만약 이번 Enemy의 pos이 x + 12.5f , y + 6.25f 의 인덱스에
+    List<List<int[]>> mapList = new List<List<int[]>>();
 
     private void Awake()
     {
         if(Instance == null) Instance = this;
+        mapList = new List<List<int[]>>();
+        InitMap();
     }
 
-    private void Start()
+    public void InitMap()
     {
-        EnemeisList = new List<Enemy>();
+        int width = 24;
+        int height = 12;
 
-        for (int i =0; i< 12; i++)
+        for (int i = 0; i < 3; i++)
         {
-            for(int j=0; j <24; j++)
+            List<int[]> temp = new List<int[]>();
+
+            for (int j = i; j < height - i; j++)
             {
-                SpawnEnemy(i,j);
+                temp.Add(new int[] { j, i });
+                temp.Add(new int[] { j, width - 1 - i });
             }
-            
+
+            for (int j = i + 1; j < width - (i + 1); j++)
+            {
+                temp.Add(new int[] { i, j });
+                temp.Add(new int[] { height - 1 - i, j });
+            }
+
+            mapList.Add(temp);
         }
     }
-    public void SpawnEnemy(int y, int x)
-    {
-        GameObject go = Instantiate(enemyPrefabs, new Vector3(-12.5f, -6.25f) + new Vector3(x * 1f, y * 1f), Quaternion.identity);
-        Enemy enemyComponent = go.GetComponent<Enemy>();
 
-        EnemeisList.Add(enemyComponent);
+    public void SpawnEnemy()
+    {
+        GameObject go = Instantiate(enemyPrefabs, FindEmptyPos(), Quaternion.identity);
     }
 
-    public Vector3 CheckEmptySpace(int x, int y)
+    public Vector3 FindEmptyPos()
     {
-        
-       while (emptySlot >0 && map[y, x])
-        {
-            x++;
-            if (x >= map.GetLength(0))
-            {
-                x = 0;
-                y++;
-            }
+        int index = UnityEngine.Random.Range(0, mapList[0].Count);
 
-            if (y >= map.GetLength(1))
-            {
-                y = 0;
-            }
+        int[] pos = mapList[0][index];
+
+        mapList[0].RemoveAt(index);
+
+
+        if(mapList[0].Count == 0)
+        {
+            mapList.RemoveAt(0);
         }
 
-        map[y, x] = true;
-        emptySlot--;
+        return new Vector3(-12.5f, -6.25f) + new Vector3(pos[1] * 1f, pos[0] * 1f);
 
-        return new Vector3(-12.5f, -6.25f) + new Vector3(x * 1f, y * 1f);
-
-    }
-
-    public Vector3 SettingPos()
-    {
-        int x = UnityEngine.Random.Range(0, 25);
-        int y = UnityEngine.Random.Range(0, 13);
-
-        return CheckEmptySpace(x,y);
     }
 
 }
