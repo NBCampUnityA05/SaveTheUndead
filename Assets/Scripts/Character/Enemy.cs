@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Enemy : MonoBehaviour, ICharacter
 {
     float remainCoolTime = 0f;
-    float COOL_TIME = 3f;
+    float COOL_TIME = 4.5f;
     Vector3 moveDirection = Vector3.right;
     [SerializeField] private SpriteRenderer body;
     [SerializeField] private SpriteRenderer left;

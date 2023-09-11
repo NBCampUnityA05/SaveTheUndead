@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 8893193627961271043}
+  spriteRenderer: {fileID: 8681280863108801008}
 --- !u!50 &8893193627961271043
 Rigidbody2D:
   serializedVersion: 4
@@ -101,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 7591168734781204679}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3365121571822429171}
@@ -171,9 +172,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2300180500383774059, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3791917316026651748, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791917316026651748, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791917316026651748, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791917316026651748, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3791917316026651748, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
       propertyPath: m_LocalPosition.x

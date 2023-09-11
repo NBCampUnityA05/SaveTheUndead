@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; private set; }
+
+    public List<Enemy> Enemies { get; private set; }
 
     public GameObject player; // 임시 플레이어 참조용
 
@@ -13,18 +16,31 @@ public class EnemyManager : MonoBehaviour
 
     List<List<int[]>> mapList = new List<List<int[]>>();
 
+    float startX = -17.5f;
+    float startY = -9f;
+    float spacing = 1f;
+    int width = 36;
+    int height = 19;
+
+
     private void Awake()
     {
         if(Instance == null) Instance = this;
+        Enemies = new List<Enemy>();
         mapList = new List<List<int[]>>();
         InitMap();
     }
 
+    private void Start()
+    {
+        for (int i =0; i< 36; i++)
+        {
+            SpawnEnemy();
+        }
+    }
+
     public void InitMap()
     {
-        int width = 24;
-        int height = 12;
-
         for (int i = 0; i < 3; i++)
         {
             List<int[]> temp = new List<int[]>();
@@ -47,7 +63,14 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        if (mapList.Count == 0) 
+        {
+            Debug.Log("Enemy를 더이상 Spawn시킬 자리가 없습니다");
+            return;
+        }
+        
         GameObject go = Instantiate(enemyPrefabs, FindEmptyPos(), Quaternion.identity);
+        Enemies.Add(go.GetComponent<Enemy>());
     }
 
     public Vector3 FindEmptyPos()
@@ -64,7 +87,7 @@ public class EnemyManager : MonoBehaviour
             mapList.RemoveAt(0);
         }
 
-        return new Vector3(-12.5f, -6.25f) + new Vector3(pos[1] * 1f, pos[0] * 1f);
+        return new Vector3(startX, startY) + new Vector3(pos[1] * spacing, pos[0] * spacing);
 
     }
 
