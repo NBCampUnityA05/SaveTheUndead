@@ -6,23 +6,14 @@ public class BulletManager : MonoBehaviour
 {
 
     public static BulletManager Instance { get; private set; }
-    public List<Bullet> BulletsList { get; private set; }
 
     [SerializeField] private GameObject bulletPrefabs;
+    
+    public Camera mainCamera; // 임시 카메라 참조용
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
-    }
-
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-       
     }
 
     public void ShotBullet(Vector3 spawnPos)
