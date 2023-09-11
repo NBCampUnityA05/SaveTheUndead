@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour,ICharacter
 {
     [SerializeField] protected Rigidbody2D rb2D;
     protected Vector3 moveDirection = Vector3.zero;
-    float speed;
+    protected float speed;
 
     protected virtual void Start()
     {

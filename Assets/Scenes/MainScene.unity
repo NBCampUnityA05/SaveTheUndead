@@ -309,7 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fbcc463f8a8144aa01c25ed7e1b4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefabs: {fileID: 865352663186822988, guid: 961221d66dca25646af982aacfc09d02, type: 3}
+  enemyBulletPrefabs: {fileID: 865352663186822988, guid: 961221d66dca25646af982aacfc09d02, type: 3}
+  playerBulletPrefabs: {fileID: 0}
   mainCamera: {fileID: 519420031}
 --- !u!1 &1978081934
 GameObject:
