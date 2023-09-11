@@ -11,22 +11,32 @@ public class Enemy : MonoBehaviour, ICharacter
     [SerializeField] private SpriteRenderer body;
     [SerializeField] private SpriteRenderer left;
     [SerializeField] private SpriteRenderer right;
+    [SerializeField] private Transform spawnBullet;
+
+    Vector3 leftPos = Vector3.zero;
+    Vector3 rightPos = Vector3.zero;
+    bool isFlip = false;
 
     private void Start()
     {
-    
+        leftPos = left.transform.position;
+        rightPos = right.transform.position;
     }
 
     private void Update()
     {
         remainCoolTime -= Time.deltaTime;
         if (remainCoolTime <= 0f) AttackCharacter();
-    }  
+    }
+
+    private void FixedUpdate()
+    {
+        RotateEnemyToPlayer();
+    }
 
     public void AttackCharacter()
     {
-        RotateEnemyToPlayer();
-        BulletManager.Instance.ShotBullet(transform.position);
+        BulletManager.Instance.ShotBullet(spawnBullet.position);
         remainCoolTime = COOL_TIME;
     }
 
@@ -39,12 +49,30 @@ public class Enemy : MonoBehaviour, ICharacter
 
     private void FlipXEnemy(bool result)
     {
-        body.flipX = result;
-        left.flipX = result;
-        right.flipX = result;
+        if (isFlip != result)
+        {
+            body.flipX = result;
+            left.flipX = result;
+            right.flipX = result;
+
+            if (result == true)
+            {    
+                left.transform.position = rightPos;
+                right.transform.position = leftPos;
+                right.transform.rotation = Quaternion.Euler(0, 0, 45f);
+                isFlip = true;
+            }
+            else
+            {
+                left.transform.position = leftPos;
+                right.transform.position = rightPos;
+                right.transform.rotation = Quaternion.Euler(0, 0, -45f);
+                isFlip = false;
+            }
+            
+        }
+        
     }
 
     public void TakeDamage() {}
-
-    // Player의 위치를 받아서 방향을 Player 방향으로 변경한다.
 }

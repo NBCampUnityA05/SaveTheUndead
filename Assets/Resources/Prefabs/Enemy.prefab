@@ -214,8 +214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 7840004874351028651}
-  left: {fileID: 992333068267483486}
-  right: {fileID: 418359426753621028}
+  left: {fileID: 418359426753621028}
+  right: {fileID: 992333068267483486}
+  spawnBullet: {fileID: 1213176217878188344}
 --- !u!1 &3007768119934999959
 GameObject:
   m_ObjectHideFlags: 0
