@@ -62,21 +62,48 @@ public class AudioManager : MonoBehaviour
             sfxPlayers[sfxIndex].volume = sfxVolume;
         }
     }
-    
+
+    public void SetVolume(float bgmVolume, float sfxVolume)
+    {
+        this.bgmVolume = bgmVolume;
+        this.sfxVolume = sfxVolume;
+
+        // 모든 BGM 및 SFX 오디오 소스의 볼륨 설정
+        foreach (var bgmPlayer in bgmPlayers)
+        {
+            bgmPlayer.volume = bgmVolume;
+        }
+
+        foreach (var sfxPlayer in sfxPlayers)
+        {
+            sfxPlayer.volume = sfxVolume;
+        }
+    }
+
     public void PlayBgm(Bgm bgm)
     {
-        for(int index = 0; index < bgmPlayers.Length; index++)
+        // 이전 BGM 중지
+        for (int index = 0; index < bgmPlayers.Length; index++)
+        {
+            if (bgmPlayers[index].isPlaying)
+            {
+                bgmPlayers[index].Stop();
+            }
+        }
+
+        // 새로운 BGM 재생
+        for (int index = 0; index < bgmPlayers.Length; index++)
         {
             int loopIndex = (index + bgmChannelIndex) % bgmPlayers.Length;
 
-            if (bgmPlayers[loopIndex].isPlaying)
+            if (!bgmPlayers[loopIndex].isPlaying)
             {
-                continue;
+                bgmChannelIndex = loopIndex;
+                bgmPlayers[loopIndex].clip = bgmClip[(int)bgm];
+                bgmPlayers[loopIndex].loop = true; // BGM 루프 재생 설정
+                bgmPlayers[loopIndex].Play();
+                break;
             }
-            bgmChannelIndex = loopIndex;
-            bgmPlayers[loopIndex].clip = bgmClip[(int)bgm];
-            bgmPlayers[loopIndex].Play();
-            break;
         }
     }
 
