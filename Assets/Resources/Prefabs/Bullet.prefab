@@ -84,6 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8441912398608368996}
   - component: {fileID: 8681280863108801008}
+  - component: {fileID: 3179661105652936773}
   m_Layer: 0
   m_Name: Bullet 3
   m_TagString: Untagged
@@ -218,5 +219,43 @@ PrefabInstance:
     - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 13331334998221818, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3179661105652936773}
   m_SourcePrefab: {fileID: 100100000, guid: 27e57c5decb15eb49a014215f3533fb3, type: 3}
+--- !u!70 &3179661105652936773
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591168734781204679}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.22222228, y: 0.44444457}
+  m_Direction: 0

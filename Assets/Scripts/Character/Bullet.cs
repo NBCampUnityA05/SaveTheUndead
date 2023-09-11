@@ -13,8 +13,6 @@ public class Bullet : MonoBehaviour,ICharacter
         RotateBulletToPlayer();
         speed = 5f;
     }
-
-
     private void FixedUpdate()
     {
         MoveBullet();
@@ -43,18 +41,26 @@ public class Bullet : MonoBehaviour,ICharacter
 
         if (screenPos.x > 1 || screenPos.x < 0 || screenPos.y > 1 || screenPos.y < 0)
         {
-            BulletManager.Instance.DestroyBullet(this);
+            Destroy(gameObject);
         }
     }
 
     public void AttackCharacter()
     {
-        // 플레이어와 부딫혔을때 실행될 메서드
+        Destroy(gameObject);
     }
 
     public void TakeDamage()
     {
-        // 플레이어의 총알과 부딫힌다면 실행될 메서드
+        Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            AttackCharacter();
+            //collision.gameObject.GetComponent<ICharacter>().TakeDamage();
+        }
+    }
 }

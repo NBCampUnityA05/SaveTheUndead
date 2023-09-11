@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
     {
         EnemeisList = new List<Enemy>();
 
-        for (int i =0; i< 5; i++)
+        for (int i =0; i< 20; i++)
         {
             SpawnEnemy();
         }
@@ -36,10 +36,17 @@ public class EnemyManager : MonoBehaviour
 
     public Vector3 SettingPos()
     {
-        float x = Random.Range(-8f, 8f);
-        float y = Random.Range(-4f, 4f);
+        Vector3[] dir = new Vector3[] 
+        {
+            new Vector3(Random.Range(-8f, 8f), Random.Range(3f, 4f)),
+            new Vector3(Random.Range(-8f, 8f), Random.Range(-4f,-3f)),
+            new Vector3(Random.Range(-8f,-7f), Random.Range(-4f,4f)),
+            new Vector3(Random.Range(7f,8f), Random.Range(-4f,4f)) 
+        };
 
-        return new Vector3(x, y);
+        int index = Random.Range(0, dir.Length);
+
+        return dir[index];
     }
 
 }

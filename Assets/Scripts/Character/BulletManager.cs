@@ -6,7 +6,6 @@ public class BulletManager : MonoBehaviour
 {
 
     public static BulletManager Instance { get; private set; }
-    public List<Bullet> BulletsList { get; private set; }
 
     [SerializeField] private GameObject bulletPrefabs;
     
@@ -17,26 +16,8 @@ public class BulletManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    private void Start()
-    {
-        BulletsList = new List<Bullet>();
-    }
-
-    private void Update()
-    {
-       
-    }
-
     public void ShotBullet(Vector3 spawnPos)
     {
-        GameObject go = Instantiate(bulletPrefabs, spawnPos, Quaternion.identity);
-        Bullet bullet = go.GetComponent<Bullet>();
-        BulletsList.Add(bullet);
-    }
-
-    public void DestroyBullet(Bullet bullet)
-    {
-        BulletsList.Remove(bullet);
-        Destroy(bullet.gameObject);
+        Instantiate(bulletPrefabs, spawnPos, Quaternion.identity);
     }
 }
