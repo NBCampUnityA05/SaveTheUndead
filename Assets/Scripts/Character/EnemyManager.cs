@@ -7,7 +7,6 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; private set; }
-
     public List<Enemy> Enemies { get; private set; }
 
     public GameObject player; // 임시 플레이어 참조용

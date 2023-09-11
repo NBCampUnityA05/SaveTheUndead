@@ -7,8 +7,9 @@ public class BulletManager : MonoBehaviour
 
     public static BulletManager Instance { get; private set; }
 
-    [SerializeField] private GameObject bulletPrefabs;
-    
+    [SerializeField] private GameObject enemyBulletPrefabs;
+    [SerializeField] private GameObject playerBulletPrefabs;
+
     public Camera mainCamera; // 임시 카메라 참조용
 
     private void Awake()
@@ -16,8 +17,8 @@ public class BulletManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    public void ShotBullet(Vector3 spawnPos)
+    public void ShotEnemyBullet(Vector3 spawnPos)
     {
-        Instantiate(bulletPrefabs, spawnPos, Quaternion.identity);
+        Instantiate(enemyBulletPrefabs, spawnPos, Quaternion.identity);
     }
 }
