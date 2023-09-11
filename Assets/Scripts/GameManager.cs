@@ -6,11 +6,11 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
     public static GameManager Instance { get { return instance; } }
-
     public GameObject stageUI;
     public GameObject resultUI;
 
     int level;
+    public int score = 0;
 
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject player;
@@ -30,10 +30,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // -----AudioTest 09.10 - 문현우
-        AudioManager.instance.PlayBgm(AudioManager.Bgm.MainScene);
-        // -----
-
         StartGame();
     }
 
@@ -71,40 +67,48 @@ public class GameManager : MonoBehaviour
 
     //플레이어 사망 시 결과창 출력(UIManager 담당자가 구현한 기능 사용)
 
+    //배경음 중단 메소드도 필요함.
+
     /// <summary>
     /// 게임 시작. 실질적으로 게임의 흐름 전체를 담당한다.
     /// </summary>
     public void StartGame()
     {
+        //배경음 재생 시작
+        AudioManager.instance.PlayBgm(AudioManager.Bgm.MainScene);
+
         bool isAlive = true;
         int score = 0;
         //플레이어가 살아있는 동안 진행.
-        while (isAlive)
-        {
-            //시간의 흐름에 따른 스코어 증가
+        //while (isAlive)
+        //{
+        //    //시간의 흐름에 따른 스코어 증가
 
-            //이동, 공격 등의 입력 감지와 이에 대한 처리
+        //    //이동, 공격 등의 입력 감지와 이에 대한 처리
 
-            //
+        //    //
+        //    // 
 
-            /*
-            //플레이어 피격 감지 시
-            if ()
-            {
-                isAlive = HitPlayer();
-            }
-            */
-        }
+        //    /*
+        //    //플레이어 피격 감지 시
+        //    if ()
+        //    {
+        //        isAlive = HitPlayer();
+        //    }
+        //    */
+        //}
 
         GameOver(score);
     }
     
     /// <summary>
-    /// 플레이어가 쏜 탄환과 적의 충돌 감지 시 호출. 해당 적 제거, 스코어 1 증가.
+    /// 플레이어가 쏜 탄환과 적의 충돌 감지 시 호출. 해당 적 제거, score +1
     /// </summary>
     public void HitEnemy()
     {
-        
+        //해당 적 제거
+
+        score += 1;
     }
 
     /// <summary>
@@ -136,6 +140,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void GameOver(int score)
     {
+        //배경음 재생 중단
+
         //사망 애니메이션 출력 트리거 활성화
 
         //애니메이션 끝나갈 때 쯤까지 약간의 딜레이
