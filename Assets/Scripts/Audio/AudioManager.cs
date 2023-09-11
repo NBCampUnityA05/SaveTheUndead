@@ -24,7 +24,6 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         Init();
-        // MainScene으로 넘어가도 파괴되지 않게 설정.
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -68,7 +67,6 @@ public class AudioManager : MonoBehaviour
         this.bgmVolume = bgmVolume;
         this.sfxVolume = sfxVolume;
 
-        // 모든 BGM 및 SFX 오디오 소스의 볼륨 설정
         foreach (var bgmPlayer in bgmPlayers)
         {
             bgmPlayer.volume = bgmVolume;

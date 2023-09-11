@@ -340,6 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed68d15b8bf98446a00bd90eb78c8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageUI: {fileID: 0}
+  resultUI: {fileID: 0}
+  score: 0
+  enemy: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1451162925
 Transform:
   m_ObjectHideFlags: 0
