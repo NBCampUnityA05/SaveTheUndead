@@ -10,7 +10,7 @@ public class SelectCharacter : MonoBehaviour
    // CharacterIndex -> MainScene
    // AddListener 사용 예정. 추후 변경 가능
    public void OnclickedCharacter()
-    {
+   {
         SceneManager.LoadScene("MainScene");
-    }
+   }
 }

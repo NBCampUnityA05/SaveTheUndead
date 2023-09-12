@@ -24,7 +24,6 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         Init();
-        // MainScene으로 넘어가도 파괴되지 않게 설정.
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -62,21 +61,47 @@ public class AudioManager : MonoBehaviour
             sfxPlayers[sfxIndex].volume = sfxVolume;
         }
     }
-    
+
+    public void SetVolume(float bgmVolume, float sfxVolume)
+    {
+        this.bgmVolume = bgmVolume;
+        this.sfxVolume = sfxVolume;
+
+        foreach (var bgmPlayer in bgmPlayers)
+        {
+            bgmPlayer.volume = bgmVolume;
+        }
+
+        foreach (var sfxPlayer in sfxPlayers)
+        {
+            sfxPlayer.volume = sfxVolume;
+        }
+    }
+
     public void PlayBgm(Bgm bgm)
     {
-        for(int index = 0; index < bgmPlayers.Length; index++)
+        // 이전 BGM 중지
+        for (int index = 0; index < bgmPlayers.Length; index++)
+        {
+            if (bgmPlayers[index].isPlaying)
+            {
+                bgmPlayers[index].Stop();
+            }
+        }
+
+        // 새로운 BGM 재생
+        for (int index = 0; index < bgmPlayers.Length; index++)
         {
             int loopIndex = (index + bgmChannelIndex) % bgmPlayers.Length;
 
-            if (bgmPlayers[loopIndex].isPlaying)
+            if (!bgmPlayers[loopIndex].isPlaying)
             {
-                continue;
+                bgmChannelIndex = loopIndex;
+                bgmPlayers[loopIndex].clip = bgmClip[(int)bgm];
+                bgmPlayers[loopIndex].loop = true; // BGM 루프 재생 설정
+                bgmPlayers[loopIndex].Play();
+                break;
             }
-            bgmChannelIndex = loopIndex;
-            bgmPlayers[loopIndex].clip = bgmClip[(int)bgm];
-            bgmPlayers[loopIndex].Play();
-            break;
         }
     }
 
