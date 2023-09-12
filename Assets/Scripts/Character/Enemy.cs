@@ -39,12 +39,12 @@ public class Enemy : MonoBehaviour, ICharacter
         int rate = Random.Range(0, 100);
         BulletType type;
         float speed;
-        if (rate >= 90)
+        if (rate >= 98)
         {
             type = BulletType.Bomb;
             speed = 5f;
         }
-        else if(rate >= 70)
+        else if(rate >= 95)
         {
             type = BulletType.Potion;
             speed = 7f;

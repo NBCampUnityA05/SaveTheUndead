@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 8720873050687686368}
   - component: {fileID: 6342250028177974923}
   - component: {fileID: 1899210272811664420}
-  - component: {fileID: 1193058806194342519}
+  - component: {fileID: 8055114459010484528}
   m_Layer: 0
   m_Name: BombEffet
   m_TagString: Untagged
@@ -180,8 +180,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1193058806194342519
-BoxCollider2D:
+--- !u!58 &8055114459010484528
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -209,19 +209,9 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.003251791, y: -0.10736489}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5555556, y: 0.5}
-    newSize: {x: 0.5555556, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.34489, y: 2.63373}
-  m_EdgeRadius: 0
+  m_Radius: 1
