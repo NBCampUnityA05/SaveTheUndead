@@ -10,6 +10,6 @@ public class ReturnBtn : MonoBehaviour
     public void OnClickedReturnBtn()
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
-        UIManager.instance.SetGameObjectActive(returnBtn, false);
+        returnBtn.SetActive(false);
     }
 }

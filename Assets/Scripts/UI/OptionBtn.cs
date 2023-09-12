@@ -9,6 +9,6 @@ public class OptionBtn : MonoBehaviour
     public void OnClickedOptionBtn()
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
-        UIManager.instance.SetGameObjectActive(optionBtn, true);
+        optionBtn.SetActive(true);
     }
 }
