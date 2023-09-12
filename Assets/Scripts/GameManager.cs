@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Text lifeUI;
     public GameObject resultUI;
     private float score = 0f;
+    private const int maxLife = 3;
     private int life = 3;
     int level;
 
@@ -88,8 +89,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         score = 0f;
-        life = 3;
-        scoreUI.text = score.ToString();
+        life = maxLife;
+        scoreUI.text = ((int)score).ToString();
         lifeUI.text = $"Player 1 Life : {life}";
 
         AudioManager.instance.PlayBgm(false);
@@ -103,7 +104,8 @@ public class GameManager : MonoBehaviour
     private void PlayingGame()
     {
         score += 0.1f;
-        scoreUI.text = score.ToString();
+        scoreUI.text = ((int)score).ToString();
+        lifeUI.text = $"Player 1 Life : {life}";
     }
 
     /// <summary>
@@ -113,16 +115,7 @@ public class GameManager : MonoBehaviour
     {
         //해당 투사체 제거
         //플레이어에게 날아오는 오브젝트는 '적' 뿐만 아니라 아이템도 섞여 있음. 일단은 둘 다 '적' 취급이므로 플레이어의 공격에 닿으면 소멸한다.
-        //아이템은 별도의 태그를 달아서 이것을 통해 구분하도록 한다.
         score += 10f;
-    }
-
-    /// <summary>
-    /// 방향키 입력 감지 시 호출. 해당 키에 배정된 플레이어를 이동시키고 이동 애니메이션 출력 트리거 활성화. Player 담당자가 구현한 기능을 사용할 예정.
-    /// </summary>
-    public void MovePlayer()
-    {
-
     }
 
     /// <summary>
@@ -137,19 +130,16 @@ public class GameManager : MonoBehaviour
         { 
             life = 0;
         }
-
-        lifeUI.text = $"Player 1 Life : {life}";
     }
 
     /// <summary>
-    /// 플레이어와 포션 아이템의 충돌 감지 시 호출. 플레이어가 살아 있는 상태라면 체력 회복 적용
+    /// 플레이어와 포션 아이템의 충돌 감지 시 호출. 체력이 깎인 상태라면 체력 회복 적용
     /// </summary>
     public void TakePotion()
     {
-        if (life > 0)
+        if (life < maxLife)
         {
             life += 1;
-            lifeUI.text = $"Player 1 Life : {life}";
         }
     }
 
@@ -169,10 +159,5 @@ public class GameManager : MonoBehaviour
         //결과창 + 재시도 버튼 출력
         Time.timeScale = 0f;
         resultUI.SetActive(true);
-    }
-
-    public void RetryGame()
-    {
-        Time.timeScale = 1f;
     }
 }

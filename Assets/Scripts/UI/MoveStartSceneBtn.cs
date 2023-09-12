@@ -9,6 +9,5 @@ public class MoveStartSceneBtn : MonoBehaviour
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         AudioManager.instance.PlayBgm(false);
         UIManager.instance.LoadScene("StartScene");
-        GameManager.Instance.RetryGame();
     }
 }
