@@ -78,9 +78,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        //배경음 재생 시작
-        AudioManager.instance.PlayBgm(AudioManager.Bgm.MainScene);
-
         bool isAlive = true;
         int score = 0;
         //플레이어가 살아있는 동안 진행.
