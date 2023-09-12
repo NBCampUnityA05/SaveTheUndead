@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public Text scoreUI;
     public Text lifeUI;
     public GameObject resultUI;
-    private bool isAlive = true;
     private int score = 0;
     private int life = 3;
     int level;
@@ -39,7 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //플레이어가 살아있다면
-        if (isAlive)
+        if (life > 0)
         {
             PlayingGame();
         }
@@ -85,9 +84,8 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 게임 시작. 게임을 시작할 때 각 요소를 세팅한다.
     /// </summary>
-    private void StartGame()
+    public void StartGame()
     {
-        isAlive = true;
         score = 0;
         life = 3;
         scoreUI.text = score.ToString();
@@ -127,7 +125,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어와 적 충돌 감지 시 호출. 플레이어 체력 감소 또는 사망 판정.
+    /// 플레이어와 적 충돌 감지 시 호출. 플레이어 체력 감소.
     /// </summary>
     public void HitPlayer()
     {
@@ -140,7 +138,6 @@ public class GameManager : MonoBehaviour
         }
 
         lifeUI.text = $"Player 1 Life : {life}";
-        isAlive = false;
     }
 
     /// <summary>
@@ -171,13 +168,7 @@ public class GameManager : MonoBehaviour
 
 
         //결과창 + 재시도 버튼 출력
-
-        /*
-        //재시도 입력 감지 시
-        if ()
-        {
-            StartGame();
-        }
-        */
+        Time.timeScale = 0f;
+        resultUI.SetActive(true);
     }
 }
