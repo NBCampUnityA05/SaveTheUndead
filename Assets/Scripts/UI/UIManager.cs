@@ -7,8 +7,11 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void LoadScene(string sceneName)
