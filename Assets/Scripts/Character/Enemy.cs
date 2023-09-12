@@ -36,7 +36,26 @@ public class Enemy : MonoBehaviour, ICharacter
 
     public void AttackCharacter()
     {
-        BulletManager.Instance.ShotEnemyBullet(spawnBullet.position, Random.Range(1f,2f));
+        int rate = Random.Range(0, 100);
+        BulletType type;
+        float speed;
+        if (rate >= 98)
+        {
+            type = BulletType.Bomb;
+            speed = 5f;
+        }
+        else if(rate >= 95)
+        {
+            type = BulletType.Potion;
+            speed = 7f;
+        }
+        else
+        {
+            type = BulletType.Enemy;
+            speed = Random.Range(1f, 2f);
+        }
+
+        BulletManager.Instance.ShotBullet(type, spawnBullet.position, speed);
         remainCoolTime = COOL_TIME;
     }
 
