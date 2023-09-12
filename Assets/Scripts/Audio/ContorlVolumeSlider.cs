@@ -20,8 +20,9 @@ public class ContorlVolumeSlider : MonoBehaviour
     public void ChangeVolume(float volume)
     {
         UpdateVolumeIcon(volume);
-        AudioManager.instance.SetVolume(volume, volume);
+        AudioManager.instance.SetVolume(volume, volume); // BGM º¼·ý°ú SFX º¼·ýÀ» ¸ðµÎ º¯°æ
     }
+
 
     private void UpdateVolumeIcon(float volume)
     {
