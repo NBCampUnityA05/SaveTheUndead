@@ -8,6 +8,8 @@ public class RetryBtn : MonoBehaviour
     public void RetryGame()
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        GameManager.Instance.StartGame();
+        Time.timeScale = 1f;
         UIManager.instance.LoadScene("MainScene");
     }
 }
