@@ -1503,9 +1503,9 @@ MonoBehaviour:
   stageUI: {fileID: 622232453}
   scoreUI: {fileID: 415291743}
   lifeUI: {fileID: 91925704}
-  resultUI: {fileID: 0}
+  resultUI: {fileID: 622232453}
   enemy: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 388915199}
 --- !u!4 &1157089199
 Transform:
   m_ObjectHideFlags: 0
