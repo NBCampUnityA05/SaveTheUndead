@@ -15,6 +15,7 @@ public class Potion : Bullet
         if (collision.gameObject.CompareTag("Player"))
         {
             AttackCharacter();
+            GameManager.Instance.TakePotion();
             //collision.gameObject.GetComponent<ICharacter>().TakeDamage();
         }
     }
