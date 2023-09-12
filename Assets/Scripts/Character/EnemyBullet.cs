@@ -16,6 +16,8 @@ public class EnemyBullet : Bullet
         if (collision.gameObject.CompareTag("Player"))
         {
             AttackCharacter();
+            Debug.Log("Player Attacked!!!");
+            GameManager.Instance.HitPlayer();
             //collision.gameObject.GetComponent<ICharacter>().TakeDamage();
         }
     }

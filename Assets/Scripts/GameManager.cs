@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     static GameManager instance;
     public static GameManager Instance { get { return instance; } }
     public GameObject stageUI;
+    public Text scoreUI;
+    public Text lifeUI;
     public GameObject resultUI;
-
+    private bool isAlive = true;
+    private int score = 0;
+    private int life = 3;
     int level;
-
-    public int score = 0;
 
     [SerializeField] private GameObject enemy;
     [SerializeField] private GameObject player;
@@ -24,8 +27,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
-
     }
 
     // Start is called before the first frame update
@@ -37,7 +38,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //플레이어가 살아있다면
+        if (isAlive)
+        {
+            PlayingGame();
+        }
+        else
+        {
+            GameOver();
+        }
     }
 
     //캐릭터 선택 => 메인씬 호출하는 기능은 있음.
@@ -74,43 +83,28 @@ public class GameManager : MonoBehaviour
     //배경음 중단 메소드도 필요함.
 
     /// <summary>
+    /// 게임 시작. 게임을 시작할 때 각 요소를 세팅한다.
+    /// </summary>
+    private void StartGame()
+    {
+        isAlive = true;
+        score = 0;
+        life = 3;
+        scoreUI.text = score.ToString();
+        lifeUI.text = $"Player 1 Life : {life}";
+
+        AudioManager.instance.PlayBgm(false);
+        Debug.Log("BGM ReStart!!!");
+        AudioManager.instance.PlayBgm(true);
+    }
+
+    /// <summary>
     /// 게임 시작. 실질적으로 게임의 흐름 전체를 담당한다.
     /// </summary>
-    public void StartGame()
+    private void PlayingGame()
     {
-        bool isAlive = true;
-        int score = 0;
-       
-        AudioManager.instance.PlayBgm(false);
-        Debug.Log("BGM Stop!!!");
-        int count = 0;
-        while(count <= 10000)
-        {
-            count++; 
-        }
-        Debug.Log("BGM Start!!!");
-        AudioManager.instance.PlayBgm(true);
-
-        //플레이어가 살아있는 동안 진행.
-        //while (isAlive)
-        //{
-        //    //시간의 흐름에 따른 스코어 증가
-
-        //    //이동, 공격 등의 입력 감지와 이에 대한 처리
-
-        //    //
-        //    // 
-
-        //    /*
-        //    //플레이어 피격 감지 시
-        //    if ()
-        //    {
-        //        isAlive = HitPlayer();
-        //    }
-        //    */
-        //}
-
-        GameOver(score);
+        score++;
+        scoreUI.text = score.ToString();
     }
 
     /// <summary>
@@ -133,36 +127,48 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어와 적 또는 플레이어와 아이템의 충돌 감지 시 호출. 처리 후 플레이어 사망 여부 반환.
+    /// 플레이어와 적 충돌 감지 시 호출. 플레이어 체력 감소 또는 사망 판정.
     /// </summary>
-    public bool HitPlayer()
+    public void HitPlayer()
     {
         //적과 충돌했다면 플레이어 체력 감소, 체력이 남아 있다면 피격 애니메이션 출력 트리거 활성화
         //아이템과 충돌했다면 플레이어에게 해당 아이템 효과 적용
+        life -= 1;
+        if (life <= 0) 
+        { 
+            life = 0;
+        }
 
-        //플레이어 체력 계산. 아직 체력이 남아 있다면 true, 아니면 false 반환
-        return false;
+        lifeUI.text = $"Player 1 Life : {life}";
+        isAlive = false;
     }
 
     /// <summary>
-    /// 플레이어와 아이템의 충돌 감지 시 호출. 해당 아이템 제거, 플레이어에게 효과 적용
+    /// 플레이어와 포션 아이템의 충돌 감지 시 호출. 플레이어가 살아 있는 상태라면 체력 회복 적용
     /// </summary>
-    public void TakeItem()
+    public void TakePotion()
     {
-        
+        if (life > 0)
+        {
+            life += 1;
+            lifeUI.text = $"Player 1 Life : {life}";
+        }
     }
 
     /// <summary>
     /// 사망 애니메이션 출력 트리거 활성화. 약간의 딜레이(사망 애니메이션 출력이 끝날 때 쯤) 를 주고 결과창 출력되도록. 재시도 여부 결정 가능.
     /// </summary>
-    private void GameOver(int score)
+    private void GameOver()
     {
 
         //배경음 재생 중단
+        AudioManager.instance.PlayBgm(false);
+        Debug.Log("Player Dead!!!");
 
         //사망 애니메이션 출력 트리거 활성화
 
         //애니메이션 끝나갈 때 쯤까지 약간의 딜레이
+
 
         //결과창 + 재시도 버튼 출력
 
