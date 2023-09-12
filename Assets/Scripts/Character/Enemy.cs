@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
     public void AttackCharacter()
     {
-        BulletManager.Instance.ShotEnemyBullet(spawnBullet.position);
+        BulletManager.Instance.ShotEnemyBullet(spawnBullet.position, Random.Range(1f,2f));
         remainCoolTime = COOL_TIME;
     }
 
