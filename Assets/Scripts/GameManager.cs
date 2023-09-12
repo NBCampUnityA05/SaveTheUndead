@@ -80,6 +80,17 @@ public class GameManager : MonoBehaviour
     {
         bool isAlive = true;
         int score = 0;
+       
+        AudioManager.instance.PlayBgm(false);
+        Debug.Log("BGM Stop!!!");
+        int count = 0;
+        while(count <= 10000)
+        {
+            count++; 
+        }
+        Debug.Log("BGM Start!!!");
+        AudioManager.instance.PlayBgm(true);
+
         //플레이어가 살아있는 동안 진행.
         //while (isAlive)
         //{

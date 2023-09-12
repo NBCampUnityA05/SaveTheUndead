@@ -797,12 +797,12 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: fae7a677-6a04-4b73-8260-04f9410214c5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
+  projectName: SaveTheUndead
   organizationId: solbaram217
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
