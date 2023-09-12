@@ -18,13 +18,14 @@ public class BulletManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    public void ShotEnemyBullet(Vector3 spawnPos)
+    public void ShotEnemyBullet(Vector3 spawnPos, float speed)
     {
         if (Random.Range(0, 100) >= 97)
         {
             Instantiate(potionPrefabs, spawnPos, Quaternion.identity);
             return;
         }
-        Instantiate(enemyBulletPrefabs, spawnPos, Quaternion.identity);
+        GameObject bullet = Instantiate(enemyBulletPrefabs, spawnPos, Quaternion.identity);
+        bullet.GetComponent<Bullet>().speed = speed;
     }
 }
