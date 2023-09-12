@@ -22,13 +22,17 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
         Init();
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void Start()
     {
+        Time.timeScale = 1f;
         PlayBgm(true);
     }
 
