@@ -11,10 +11,10 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject player; // 임시 플레이어 참조용
 
-    [SerializeField] private GameObject[] enemyArray = new GameObject[4];
+    [SerializeField] private GameObject enemyPrefabs;
+
     List<List<int[]>> mapList = new List<List<int[]>>();
 
-    // 맵크기와 맵분할 관련 상수
     float startX = -17.5f;
     float startY = -9f;
     float spacing = 1f;
@@ -37,6 +37,7 @@ public class EnemyManager : MonoBehaviour
             SpawnEnemy();
         }
     }
+
     public void InitMap()
     {
         for (int i = 0; i < 3; i++)
@@ -66,7 +67,7 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         
-        GameObject go = Instantiate(enemyArray[UnityEngine.Random.Range(0,4)], FindEmptyPos(), Quaternion.identity);
+        GameObject go = Instantiate(enemyPrefabs, FindEmptyPos(), Quaternion.identity);
         Enemies.Add(go.GetComponent<Enemy>());
     }
     public Vector3 FindEmptyPos()

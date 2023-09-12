@@ -7,7 +7,7 @@ public class EnemyBullet : Bullet
 {
     protected override void Start()
     {
-        speed = Random.Range(0.5f, 2f);
+        speed = Random.Range(1f, 4f);
         RotateBullet(EnemyManager.Instance.player.transform.position);
     }
 
