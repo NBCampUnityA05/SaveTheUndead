@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Burst : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    float time = 1.5f;    
+    private void Update()
     {
-        ContactPoint[] contacts = collision.contacts;
-        foreach( ContactPoint contact in contacts ) 
+        time -= Time.deltaTime;
+        if (time < 0)
         {
-            Bullet isbullet = contact.otherCollider.GetComponent<Bullet>();
-            if (isbullet != null)
-            {
-                isbullet.TakeDamage();
-            }
+            Destroy(gameObject);
         }
-
-        Destroy(this);
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Bullet isbullet = collision.GetComponentInParent<Bullet>();
+        if (isbullet != null)
+        {
+            isbullet.TakeDamage();
+        }
+    }
+  
 }

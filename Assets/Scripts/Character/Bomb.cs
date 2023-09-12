@@ -17,6 +17,7 @@ public class Bomb : Bullet
         if (collision.gameObject.CompareTag("Player"))
         {
             AttackCharacter();
+            BurstBomb();
             // 1. 플레이어가 적(농부)들이 던진 폭탄을 공격으로 받아친다.
             // 1-1. 폭탄이 터지면서 날아가서 지나가는 범위의 총알을 지워준다.
             // 1-2. 받아친 폭탄은 적(농부) 부딪히면 폭발하여 농부를 처치한다.
