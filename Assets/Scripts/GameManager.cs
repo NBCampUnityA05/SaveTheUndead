@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Text scoreUI;
     public Text lifeUI;
     public GameObject resultUI;
-    private int score = 0;
+    private float score = 0f;
     private int life = 3;
     int level;
 
@@ -86,7 +86,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        score = 0;
+        Time.timeScale = 1f;
+        score = 0f;
         life = 3;
         scoreUI.text = score.ToString();
         lifeUI.text = $"Player 1 Life : {life}";
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void PlayingGame()
     {
-        score++;
+        score += 0.1f;
         scoreUI.text = score.ToString();
     }
 
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
         //해당 투사체 제거
         //플레이어에게 날아오는 오브젝트는 '적' 뿐만 아니라 아이템도 섞여 있음. 일단은 둘 다 '적' 취급이므로 플레이어의 공격에 닿으면 소멸한다.
         //아이템은 별도의 태그를 달아서 이것을 통해 구분하도록 한다.
-        score += 1;
+        score += 10f;
     }
 
     /// <summary>
@@ -160,15 +161,18 @@ public class GameManager : MonoBehaviour
 
         //배경음 재생 중단
         AudioManager.instance.PlayBgm(false);
-        Debug.Log("Player Dead!!!");
 
         //사망 애니메이션 출력 트리거 활성화
 
         //애니메이션 끝나갈 때 쯤까지 약간의 딜레이
 
-
         //결과창 + 재시도 버튼 출력
         Time.timeScale = 0f;
         resultUI.SetActive(true);
+    }
+
+    public void RetryGame()
+    {
+        Time.timeScale = 1f;
     }
 }
