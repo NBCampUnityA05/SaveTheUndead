@@ -10,6 +10,7 @@ public class BulletManager : MonoBehaviour
     [SerializeField] private GameObject enemyBulletPrefabs;
     [SerializeField] private GameObject playerBulletPrefabs;
     [SerializeField] private GameObject potionPrefabs;
+    [SerializeField] private GameObject bombPrefabs;
 
     public Camera mainCamera; // 임시 카메라 참조용
 
