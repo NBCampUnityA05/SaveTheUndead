@@ -6,7 +6,7 @@ public class Potion : Bullet
 {
     protected override void Start()
     {
-        speed = 10f;
+        speed = 7f;
         RotateBullet(EnemyManager.Instance.player.transform.position);
     }
 
