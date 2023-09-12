@@ -9,7 +9,6 @@ public class Bomb : Bullet
 
     protected override void Start()
     {
-        speed = 5f;
         RotateBullet(EnemyManager.Instance.player.transform.position);
     }
 
