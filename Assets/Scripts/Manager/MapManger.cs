@@ -124,7 +124,7 @@ public class MapManger : MonoBehaviour
             tilemap.SetTile(new Vector3Int(targetX, targetY - halfDiameter - 3, 0), null);
 
             // 주기의 2배 시간 기다립니다.
-            yield return new WaitForSeconds(repeatInterval * 2f);
+            yield return new WaitForSeconds(repeatInterval * 1f);
         }
     }
 
