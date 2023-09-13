@@ -738,7 +738,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.21568629, g: 0.5803922, b: 0.43137258, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1448,7 +1448,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1829,12 +1829,12 @@ PrefabInstance:
     - target: {fileID: 8668381832031289553, guid: 85a8467e4f68f394789800356bca28e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8668381832031289553, guid: 85a8467e4f68f394789800356bca28e3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8668381832031289553, guid: 85a8467e4f68f394789800356bca28e3,
         type: 3}
@@ -2218,7 +2218,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400865fe83535a2469541078173b0a50, type: 3}
---- !u!1001 &4361035360856025163
+--- !u!1001 &2272726956218774268
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2246,7 +2246,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1944400681324981481, guid: 50a79143e00333642b0f34d174119dc9,
+    - target: {fileID: 3416083184160403910, guid: 9bae2d6df9a48c14daf3b357a922b236,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -2286,6 +2286,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8643846601880559295, guid: 9bae2d6df9a48c14daf3b357a922b236,
+        type: 3}
+      propertyPath: lifeUI
+      value: 
+      objectReference: {fileID: 91925704}
+    - target: {fileID: 8643846601880559295, guid: 9bae2d6df9a48c14daf3b357a922b236,
+        type: 3}
+      propertyPath: scoreUI
+      value: 
+      objectReference: {fileID: 415291743}
+    - target: {fileID: 8643846601880559295, guid: 9bae2d6df9a48c14daf3b357a922b236,
+        type: 3}
+      propertyPath: resultUI
+      value: 
+      objectReference: {fileID: 622232453}
+    - target: {fileID: 8643846601880559295, guid: 9bae2d6df9a48c14daf3b357a922b236,
+        type: 3}
+      propertyPath: highScoreUI
+      value: 
+      objectReference: {fileID: 411587510}
+    - target: {fileID: 8643846601880559295, guid: 9bae2d6df9a48c14daf3b357a922b236,
+        type: 3}
+      propertyPath: currentScoreUI
+      value: 
+      objectReference: {fileID: 1170539789}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2370,7 +2395,8 @@ PrefabInstance:
       value: MapManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7216918525475971392, guid: 9663f92bb82dff746a32b3b7f3817d2f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9663f92bb82dff746a32b3b7f3817d2f, type: 3}

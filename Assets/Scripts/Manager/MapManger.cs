@@ -94,7 +94,6 @@ public class MapManger : MonoBehaviour
 
         // circleDiameterB를 1씩 감소시킵니다.
         circleDiameterB--;
-        Debug.Log("원 B의 지름: " + circleDiameterB);
     }
     else
     {
