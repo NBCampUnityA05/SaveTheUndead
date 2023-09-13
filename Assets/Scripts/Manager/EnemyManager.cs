@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +9,6 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs = new GameObject[4];
     List<List<int[]>> mapList = new List<List<int[]>>();
 
-    // 맵크기와 맵분할 관련 상수
     float startX = -17.5f;
     float startY = -9f;
     float spacing = 1f;

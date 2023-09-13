@@ -28,9 +28,6 @@ public class Player : MonoBehaviour, ICharacter
     {
         if (attack_cool_time > 0f) return;
         IsAttack = true;
-
-        atkAnim.SetTrigger("Attack");
-        GameManager.Instance.Attack();
         Invoke("CompleteAttack", 1f);
         attack_cool_time = 3f;
     }

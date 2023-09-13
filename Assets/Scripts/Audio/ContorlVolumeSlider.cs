@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +10,6 @@ public class ContorlVolumeSlider : MonoBehaviour
     private void Start()
     {
         volumeSlider.value = AudioManager.instance.bgmVolume;
-        // 슬라이더 값 변경 시 호출될 이벤트에 ChangeVolume 함수 연결
         volumeSlider.onValueChanged.AddListener(ChangeVolume);
         UpdateVolumeIcon(AudioManager.instance.bgmVolume);
     }
@@ -20,7 +17,7 @@ public class ContorlVolumeSlider : MonoBehaviour
     public void ChangeVolume(float volume)
     {
         UpdateVolumeIcon(volume);
-        AudioManager.instance.SetVolume(volume, volume); // BGM 볼륨과 SFX 볼륨을 모두 변경
+        AudioManager.instance.SetVolume(volume, volume);
     }
 
 
