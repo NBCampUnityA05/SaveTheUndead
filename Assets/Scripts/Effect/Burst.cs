@@ -15,7 +15,7 @@ public class Burst : MonoBehaviour
     {
         Bullet bullet = collision.GetComponentInParent<Bullet>();
         Player player = collision.GetComponentInParent<Player>();
-
+        Enemy enemy = collision.GetComponentInParent<Enemy>();
         if (bullet != null)
         {
             bullet.TakeDamage();
@@ -24,7 +24,10 @@ public class Burst : MonoBehaviour
         {
             player.TakeDamage();
         }
-
+        else if(enemy != null)
+        {
+            enemy.TakeDamage();
+        }
     }
   
 }

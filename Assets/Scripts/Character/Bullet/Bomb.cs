@@ -12,10 +12,10 @@ public class Bomb : Bullet
             if (player.IsAttack)
             {
                 HitBomb();
+                Invoke("BurstBomb", 2f);
             }
             else
             { 
-                AttackCharacter();
                 BurstBomb();
             }
         }
@@ -23,12 +23,14 @@ public class Bomb : Bullet
 
     public void BurstBomb()
     {
+        AttackCharacter();
         Instantiate(burstPrefabs,transform.position, Quaternion.identity);
-        Destroy(this);
+        
     }
 
     public void HitBomb()
     {
-        moveDirection = -moveDirection;
+        float rotZ = Random.Range(-20f, 20f);
+        moveDirection = Quaternion.AngleAxis(rotZ, Vector3.up) * moveDirection * -1;
     }
 }

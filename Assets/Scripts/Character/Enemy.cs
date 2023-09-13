@@ -90,5 +90,9 @@ public class Enemy : MonoBehaviour, ICharacter
         
     }
 
-    public void TakeDamage() {}
+    public void TakeDamage() 
+    {
+        EnemyManager.Instance.Enemies.Remove(this);
+        Destroy(gameObject);
+    }
 }

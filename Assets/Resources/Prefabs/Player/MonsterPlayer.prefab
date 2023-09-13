@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 2
   speed: 2
+  anim: {fileID: 1308127050635269417}
 --- !u!1 &8081598569995923956
 GameObject:
   m_ObjectHideFlags: 0

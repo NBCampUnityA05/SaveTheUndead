@@ -285,3 +285,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   speed: 2
+  anim: {fileID: 3942687173229371975}
