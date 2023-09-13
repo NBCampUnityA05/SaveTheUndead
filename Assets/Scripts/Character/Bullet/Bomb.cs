@@ -3,22 +3,33 @@ using UnityEngine;
 public class Bomb : Bullet
 {
     [SerializeField] private GameObject burstPrefabs;
-
+    bool isHit = false;
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Player player = collision.GetComponentInParent<Player>();
-        if (player != null)
+        if (!isHit)
         {
-            if (player.IsAttack)
+            Player player = collision.GetComponentInParent<Player>();
+            if (player != null)
             {
-                HitBomb();
-                Invoke("BurstBomb", 2f);
+                if (player.IsAttack)
+                {
+                    HitBomb();
+                }
+                else
+                {
+                    BurstBomb();
+                }
             }
-            else
-            { 
+        }
+        else
+        {
+            Enemy enemy = collision.GetComponentInParent<Enemy>();
+            if (enemy != null)
+            {
                 BurstBomb();
             }
         }
+        
     }
 
     public void BurstBomb()
@@ -30,7 +41,9 @@ public class Bomb : Bullet
 
     public void HitBomb()
     {
+        isHit = true;
         float rotZ = Random.Range(-20f, 20f);
         moveDirection = Quaternion.AngleAxis(rotZ, Vector3.up) * moveDirection * -1;
+        speed += 1f;
     }
 }
