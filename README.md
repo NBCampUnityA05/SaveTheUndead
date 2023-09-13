@@ -29,20 +29,20 @@ Unity를 이용한 Dodge like + VampireSurvivors like 게임
 - https://freesound.org/people/ShadyDave/sounds/608630/
 
 ## 📌 Main Functions
-### GameManager
+### GameManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/1-%E2%80%90-GameManger" >상세보기 - WIKI 이동</a>
 
-### PlayerManager
+### PlayerManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/2-%E2%80%90-PlayerManager" >상세보기 - WIKI 이동</a>
 
-### LifeManager
+### LifeManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/3-%E2%80%90-LifeManager" >상세보기 - WIKI 이동</a>
 
-### BulletManager
+### BulletManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/4-%E2%80%90-BulletManager" >상세보기 - WIKI 이동</a>
 
-### EnemyManager
+### EnemyManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/5-%E2%80%90-EnemyManager" >상세보기 - WIKI 이동</a>
 
-### UIManager
+### UIManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/6-%E2%80%90-UI-Manager" >상세보기 - WIKI 이동</a>
 
-### AudioManager
+### AudioManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/7-%E2%80%90-AudioManager" >상세보기 - WIKI 이동</a>
 
-### LevelManager
+### LevelManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/8-%E2%80%90-LevelManager" >상세보기 - WIKI 이동</a>
 
-### MapManger
+### MapManger - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/9-%E2%80%90-MapManager" >상세보기 - WIKI 이동</a>
