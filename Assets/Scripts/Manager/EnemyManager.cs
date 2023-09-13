@@ -28,11 +28,8 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i =0; i< 36; i++)
-        {
-            SpawnEnemy();
-        }
     }
+
     public void InitMap()
     {
         for (int i = 0; i < 3; i++)

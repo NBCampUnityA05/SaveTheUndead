@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
             lifeList = new GameObject[maxLife];
         }
 
+        InvokeRepeating("SpawnEnemy", 1f, 1f);
+
         StartGame();
     }
 
@@ -117,6 +119,11 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayBgm(false);
         Debug.Log("BGM ReStart!!!");
         AudioManager.instance.PlayBgm(true);
+
+        for (int i = 0; i < 36; i++)
+        {
+            SpawnEnemy();
+        }
     }
 
     /// <summary>
@@ -126,6 +133,11 @@ public class GameManager : MonoBehaviour
     {
         score += 0.1f;
         scoreUI.text = ((int)score).ToString();
+    }
+
+    private void SpawnEnemy()
+    {
+        EnemyManager.Instance.SpawnEnemy();
     }
 
     /// <summary>
