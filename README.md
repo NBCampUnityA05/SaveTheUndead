@@ -1,5 +1,7 @@
 #  SaveTheUndead
-## 🎇 WireFrame
+## 🎇 Team Notion
+
+https://teamsparta.notion.site/05-5-46ce2a45c1e749839bb2fc882e94db92
 
 
 ## 🖥️ Project Introduction
