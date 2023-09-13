@@ -24,10 +24,6 @@ public class EnemyManager : MonoBehaviour
         InitMap();
     }
 
-    private void Start()
-    {
-    }
-
     public void InitMap()
     {
         for (int i = 0; i < 3; i++)

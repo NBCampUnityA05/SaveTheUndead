@@ -77,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -113,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -125,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -394,17 +399,17 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Dead 0: 369909130
+      Dead 1: 1773231339
       Run 0: -2088749509
-      Run 5: -2066638598
-      Stand 3: 1883720508
+      Run 1: -1836318166
       Run 2: -198311514
       Run 3: -1997520891
-      Stand 0: 938132271
-      Stand 2: 1684076649
       Run 4: -1017442464
-      Run 1: -1836318166
-      Dead 1: 1773231339
+      Run 5: -2066638598
+      Stand 0: 938132271
       Stand 1: -791905833
+      Stand 2: 1684076649
+      Stand 3: 1883720508
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
