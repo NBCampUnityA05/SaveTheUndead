@@ -10,8 +10,14 @@ public class CharacterInfoBtn : MonoBehaviour
     {
         DeactivateAllCharacterInfos();
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        StartScene startScene = FindObjectOfType<StartScene>();
+        if (startScene != null)
+        {
+            startScene.ReceiveCharacterIndex(characterIndex);
+        }
         UIManager.instance.SetGameObjectActive(characterInfos[characterIndex], true);
     }
+
     void DeactivateAllCharacterInfos()
     {
         foreach (GameObject characterInfo in characterInfos)

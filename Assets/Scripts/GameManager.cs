@@ -35,6 +35,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 캐릭터 불러오는 함수
+        int selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacterIndex", -1);
+        PlayerManager playerManager = FindObjectOfType<PlayerManager>();
+        if (playerManager != null && selectedCharacterIndex != -1)
+        {
+            PlayerType selectedPlayerType = (PlayerType)selectedCharacterIndex;
+            playerManager.CreatePlayer(selectedPlayerType);
+        }
+
         StartGame();
     }
 
