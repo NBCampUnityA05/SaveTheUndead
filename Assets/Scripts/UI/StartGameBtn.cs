@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class StartGameBtn : MonoBehaviour
 {
-    public GameObject characterSelectBtn;
-
-    public void OnClickedCharcterSelectBtn()
+    public void OnClickedStartGameBtn()
     {
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
-        UIManager.instance.SetGameObjectActive(characterSelectBtn, true);
+        UIManager.instance.LoadScene("MainScene");
     }
 }
