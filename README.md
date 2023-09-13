@@ -7,7 +7,7 @@ https://teamsparta.notion.site/05-5-46ce2a45c1e749839bb2fc882e94db92
 ## 🖥️ Project Introduction
 어느 날 당신은 좀비가 되었습니다! 인간들의 공격을 피하며 최대한 오래 살아남으세요!
 
-Unity를 이용한 Dodge like + VampireSurvivors like 게임
+Unity를 이용한 Dodge like
 <br>
 
 ## 🕰️ Development Period
