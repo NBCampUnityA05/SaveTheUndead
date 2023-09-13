@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public GameObject resultUI;
     private float score = 0f;
     private int maxLife;
-    private int life;
     private bool isGameOver = false;
     int level;
 
@@ -46,7 +45,6 @@ public class GameManager : MonoBehaviour
             player = playerManager.CreatePlayer(selectedPlayerType);
 
             maxLife = player.Hp;
-            life = maxLife;
             lifeList = new GameObject[maxLife];
         }
 
@@ -59,7 +57,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //플레이어가 살아있다면
-        if (life > 0)
+        if (player.Hp > 0)
         {
             PlayingGame();
         }
@@ -112,7 +110,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         score = 0f;
         GetLifeList(maxLife);
-        PrintLife(life);
+        PrintLife(player.Hp);
         scoreUI.text = ((int)score).ToString();
         isGameOver = false;
 
@@ -157,13 +155,8 @@ public class GameManager : MonoBehaviour
     {
         //적과 충돌했다면 플레이어 체력 감소, 체력이 남아 있다면 피격 애니메이션 출력 트리거 활성화
         //아이템과 충돌했다면 플레이어에게 해당 아이템 효과 적용
-        life -= 1;
-        if (life <= 0) 
-        { 
-            life = 0;
-        }
 
-        PrintLife(life);
+        PrintLife(player.Hp);
     }
 
     /// <summary>
@@ -171,12 +164,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TakePotion()
     {
-        if (life < maxLife)
-        {
-            life += 1;
-        }
+        PrintLife(player.Hp);
+    }
 
-        PrintLife(life);
+    public void Attack()
+    {
+
     }
 
     /// <summary>
