@@ -9,18 +9,19 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
     public GameObject stageUI;
     public Text scoreUI;
-    public Text lifeUI;
+    public Text lifeText;
     public Text highScoreUI;
     public Text currentScoreUI;
     public GameObject resultUI;
     private float score = 0f;
-    private const int maxLife = 3;
-    private int life = maxLife;
+    private int maxLife = 0;
+    private int life = 0;
     private bool isGameOver = false;
     int level;
 
-    [SerializeField] private GameObject enemy;
-    [SerializeField] private GameObject player;
+    private GameObject[] lifeList;//Life 스프라이트의 배열. 가장 뒤에서부터 비활성화시키는 식으로 표현할 것임.
+
+    private Player player;
 
     //점수는 (생존 시간 + 제거한 적 수) 정도면 될듯? 
 
@@ -41,7 +42,12 @@ public class GameManager : MonoBehaviour
         if (playerManager != null && selectedCharacterIndex != -1)
         {
             PlayerType selectedPlayerType = (PlayerType)selectedCharacterIndex;
-            playerManager.CreatePlayer(selectedPlayerType);
+            player = playerManager.CreatePlayer(selectedPlayerType);
+
+            maxLife = player.Hp;
+            life = maxLife;
+
+            lifeList = new GameObject[maxLife];
         }
 
         StartGame();
@@ -105,7 +111,9 @@ public class GameManager : MonoBehaviour
         score = 0f;
         life = maxLife;
         scoreUI.text = ((int)score).ToString();
-        lifeUI.text = $"Player 1 Life : {life}";
+        Debug.Log($"MAX_LIFE : {maxLife}");
+        GetLifeList(maxLife);
+        PrintLife(life);
         isGameOver = false;
 
         AudioManager.instance.PlayBgm(false);
@@ -120,7 +128,6 @@ public class GameManager : MonoBehaviour
     {
         score += 0.1f;
         scoreUI.text = ((int)score).ToString();
-        lifeUI.text = $"Player 1 Life : {life}";
     }
 
     /// <summary>
@@ -145,6 +152,8 @@ public class GameManager : MonoBehaviour
         { 
             life = 0;
         }
+
+        PrintLife(life);
     }
 
     /// <summary>
@@ -155,6 +164,42 @@ public class GameManager : MonoBehaviour
         if (life < maxLife)
         {
             life += 1;
+        }
+
+        PrintLife(life);
+    }
+
+    /// <summary>
+    /// 각 체력 스프라이트를 활성, 비활성화 시켜서 현재 체력 수치를 표현한다.
+    /// </summary>
+    private void PrintLife(int life)
+    {
+        for (int i = 0; i < lifeList.Length; i++)
+        {
+            if (i <= life - 1)
+            {
+                lifeList[i].SetActive(true);
+            }
+            else
+            {
+                lifeList[i].SetActive(false);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 체력 스프라이트 가져오기
+    /// </summary>
+    private void GetLifeList(int maxLife)
+    {
+        Vector3 lifePosition = new Vector3(-12.5f, 8.7f, 0f);
+
+        for (int i = 0; i < maxLife; i++)
+        {
+            lifePosition.x += 1.5f;
+            
+            lifeList[i] = LifeManager.instance.createLife(lifePosition);
+            if (lifeList[i] != null) { Debug.Log("GetLife!"); }
         }
     }
 
