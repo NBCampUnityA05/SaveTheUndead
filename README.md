@@ -29,6 +29,7 @@ Unity를 이용한 Dodge like + VampireSurvivors like 게임
 ### 📜 Assets References
 - https://assetstore.unity.com/packages/2d/undead-survivor-assets-pack-238068
 - https://freesound.org/people/ShadyDave/sounds/608630/
+- https://www.pngwing.com/en/free-png-zrzud
 
 ## 📌 Main Functions
 ### GameManager - <a href="https://github.com/NBCampUnityA05/SaveTheUndead/wiki/1-%E2%80%90-GameManger" >상세보기 - WIKI 이동</a>
