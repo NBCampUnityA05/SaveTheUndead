@@ -24,15 +24,15 @@ public class Player : MonoBehaviour, ICharacter
     {
         if (attack_cool_time > 0f) return;
         IsAttack = true;
-        Invoke("CompleteAttack", 0.5f);
-        attack_cool_time = 2f;
+        Invoke("CompleteAttack", 1f);
+        attack_cool_time = 3f;
     }
 
     public void TakeDamage()
     {
-        GameManager.Instance.HitPlayer();
         anim.SetTrigger("Hit");
         hp -= 1;
+        GameManager.Instance.HitPlayer();
     }
 
    public void TakePotion()
