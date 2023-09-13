@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour, ICharacter
 
     private void RotateEnemyToPlayer()
     {
-        moveDirection = (PlayerManager.Instance.player.transform.position - transform.position).normalized; // 임시로 EnemyManager 참조
+        moveDirection = (PlayerManager.Instance.player.transform.position - transform.position).normalized;
         float rotZ = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
         FlipXEnemy(Mathf.Abs(rotZ) > 90);
     }    

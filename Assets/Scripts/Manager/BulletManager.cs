@@ -14,7 +14,7 @@ public class BulletManager : MonoBehaviour
 
     [SerializeField] private GameObject[] prefabs = new GameObject[4];
 
-    public Camera mainCamera; // 임시 카메라 참조용
+    public Camera mainCamera;
 
     private void Awake()
     {

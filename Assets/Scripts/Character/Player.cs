@@ -5,6 +5,9 @@ public class Player : MonoBehaviour, ICharacter
     [SerializeField] private int hp;
     [SerializeField] private float speed;
     [SerializeField] Animator anim;
+    [SerializeField] Animator atkAnim;
+
+    public int maxHp;
     public int Hp { get { return hp; } }
     public float Speed { get { return speed; } }
 
@@ -15,6 +18,7 @@ public class Player : MonoBehaviour, ICharacter
     private void Start()
     {
         IsAttack = false;
+        maxHp = hp;
     }
     private void Update()
     {
@@ -32,13 +36,18 @@ public class Player : MonoBehaviour, ICharacter
     {
         anim.SetTrigger("Hit");
         hp -= 1;
+
+        if (hp < 0) { hp = 0; }
         GameManager.Instance.HitPlayer();
     }
 
    public void TakePotion()
     {
+        if(hp < maxHp)
+        {
+            hp += 1;
+        }
         GameManager.Instance.TakePotion();
-        hp += 1;
     }
 
     public void CompleteAttack()

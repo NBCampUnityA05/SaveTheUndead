@@ -287,6 +287,8 @@ MonoBehaviour:
   hp: 4
   speed: 2
   anim: {fileID: 4538029196375991251}
+  atkAnim: {fileID: 0}
+  maxHp: 0
 --- !u!114 &-4008198557499881082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +301,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994af41149a85414089d97e614fd5624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armRenderer: {fileID: 0}
-  armPivot: {fileID: 0}
-  characterRenderer: {fileID: 0}
