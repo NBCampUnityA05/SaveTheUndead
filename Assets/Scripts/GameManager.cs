@@ -10,10 +10,13 @@ public class GameManager : MonoBehaviour
     public GameObject stageUI;
     public Text scoreUI;
     public Text lifeUI;
+    public Text highScoreUI;
+    public Text currentScoreUI;
     public GameObject resultUI;
     private float score = 0f;
     private const int maxLife = 3;
-    private int life = 3;
+    private int life = maxLife;
+    private bool isGameOver = false;
     int level;
 
     [SerializeField] private GameObject enemy;
@@ -43,8 +46,10 @@ public class GameManager : MonoBehaviour
         {
             PlayingGame();
         }
-        else
+        //플레이어 사망, 게임 종료 메소드가 실행된 적 없다면
+        else if(!isGameOver)
         {
+            isGameOver = true;
             GameOver();
         }
     }
@@ -92,6 +97,7 @@ public class GameManager : MonoBehaviour
         life = maxLife;
         scoreUI.text = ((int)score).ToString();
         lifeUI.text = $"Player 1 Life : {life}";
+        isGameOver = false;
 
         AudioManager.instance.PlayBgm(false);
         Debug.Log("BGM ReStart!!!");
@@ -159,5 +165,18 @@ public class GameManager : MonoBehaviour
         //결과창 + 재시도 버튼 출력
         Time.timeScale = 0f;
         resultUI.SetActive(true);
+
+        if (!PlayerPrefs.HasKey("highScore"))
+        {
+            PlayerPrefs.SetInt("highScore", (int)score);
+        }
+        else if(PlayerPrefs.GetInt("highScore") < (int)score)
+        {
+            PlayerPrefs.DeleteKey("highScore");
+            PlayerPrefs.SetInt("highScore", (int)score);
+        }
+
+        highScoreUI.text = PlayerPrefs.GetInt("highScore").ToString();
+        currentScoreUI.text = ((int)score).ToString();
     }
 }
