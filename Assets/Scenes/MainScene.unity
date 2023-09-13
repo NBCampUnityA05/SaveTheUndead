@@ -1377,8 +1377,8 @@ MonoBehaviour:
   stageUI: {fileID: 0}
   scoreUI: {fileID: 415291743}
   lifeUI: {fileID: 91925704}
-  highScoreUI: {fileID: 805576306}
-  currentScoreUI: {fileID: 1896131608}
+  highScoreUI: {fileID: 411587510}
+  currentScoreUI: {fileID: 1170539789}
   resultUI: {fileID: 622232453}
   enemy: {fileID: 0}
   player: {fileID: 0}
