@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2169788500712704962}
   - component: {fileID: 2232264793465938523}
   - component: {fileID: 8759899858674200127}
+  - component: {fileID: -1511754247732849112}
   m_Layer: 0
   m_Name: SkelletonPlayer1
   m_TagString: Untagged
@@ -134,6 +135,21 @@ MonoBehaviour:
   hp: 4
   speed: 3
   anim: {fileID: 9116358430529587623}
+--- !u!114 &-1511754247732849112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842267570270569267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994af41149a85414089d97e614fd5624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armRenderer: {fileID: 0}
+  armPivot: {fileID: 0}
+  characterRenderer: {fileID: 0}
 --- !u!1 &6339558353658604486
 GameObject:
   m_ObjectHideFlags: 0
