@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartScene : MonoBehaviour
+public class StartGameBtn : MonoBehaviour
 {
     private int selectedCharacterIndex = -1;
     public void ReceiveCharacterIndex(int characterIndex)
