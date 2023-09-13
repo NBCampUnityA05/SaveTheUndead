@@ -22,10 +22,6 @@ public class PlayerManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    private void Start()
-    {
-        CreatePlayer((PlayerType.SkelletionPlayer1));
-    }
     public Player CreatePlayer(PlayerType type)
     {
         GameObject go = Instantiate(playerPrefabs[(int)type]);

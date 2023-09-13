@@ -1339,7 +1339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157089199}
-  - component: {fileID: 1157089198}
+  - component: {fileID: 1157089200}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1347,26 +1347,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1157089198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157089197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed68d15b8bf98446a00bd90eb78c8da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageUI: {fileID: 622232453}
-  scoreUI: {fileID: 415291743}
-  lifeUI: {fileID: 91925704}
-  highScoreUI: {fileID: 411587510}
-  currentScoreUI: {fileID: 1170539789}
-  resultUI: {fileID: 622232453}
-  enemy: {fileID: 0}
-  player: {fileID: 0}
 --- !u!4 &1157089199
 Transform:
   m_ObjectHideFlags: 0
@@ -1382,6 +1362,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157089200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157089197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecd94510b38d3645adbbc6a736ee5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageUI: {fileID: 0}
+  scoreUI: {fileID: 415291743}
+  lifeUI: {fileID: 91925704}
+  highScoreUI: {fileID: 805576306}
+  currentScoreUI: {fileID: 1896131608}
+  resultUI: {fileID: 622232453}
+  enemy: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1170539787
 GameObject:
   m_ObjectHideFlags: 0
