@@ -37,10 +37,25 @@ public class MapManger : MonoBehaviour
 
                 if (distanceA <= radiusA)
                 {
-                    TileBase randomTile = tiles[Random.Range(0, tiles.Length)];
+                    //특수 타일 빈도수 조정
+                    TileBase randomTile = GetRandomTileWithBias(tiles, 0, 0.9f);
                     tilemap.SetTile(tilePositionA, randomTile);
                 }
             }
+        }
+    }
+    TileBase GetRandomTileWithBias(TileBase[] tileArray, int biasedTileIndex, float bias)
+    {
+        if (Random.value < bias)
+        {
+            // 특정 타일이 선택될 확률이 bias 이상인 경우
+            return tileArray[biasedTileIndex];
+        }
+        else
+        {
+            // 랜덤하게 다른 타일을 선택합니다.
+            int randomIndex = Random.Range(0, tileArray.Length);
+            return tileArray[randomIndex];
         }
     }
 
