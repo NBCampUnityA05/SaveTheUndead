@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -9,9 +7,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance { get; private set; }
     public List<Enemy> Enemies { get; private set; }
 
-    public GameObject player; // 임시 플레이어 참조용
-
-    [SerializeField] private GameObject[] enemyArray = new GameObject[4];
+    [SerializeField] private GameObject[] enemyPrefabs = new GameObject[4];
     List<List<int[]>> mapList = new List<List<int[]>>();
 
     // 맵크기와 맵분할 관련 상수
@@ -66,7 +62,7 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         
-        GameObject go = Instantiate(enemyArray[UnityEngine.Random.Range(0,4)], FindEmptyPos(), Quaternion.identity);
+        GameObject go = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0,4)], FindEmptyPos(), Quaternion.identity);
         Enemies.Add(go.GetComponent<Enemy>());
     }
     public Vector3 FindEmptyPos()

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Bullet : MonoBehaviour,ICharacter
 {
@@ -11,6 +8,7 @@ public class Bullet : MonoBehaviour,ICharacter
 
     protected virtual void Start()
     {
+        RotateBullet(PlayerManager.Instance.player.transform.position);
     }
     protected void FixedUpdate()
     {
