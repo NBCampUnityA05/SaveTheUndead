@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Burst : MonoBehaviour
 {
-    float time = 1.5f;    
+    float time = 1f;    
     private void Update()
     {
         time -= Time.deltaTime;
