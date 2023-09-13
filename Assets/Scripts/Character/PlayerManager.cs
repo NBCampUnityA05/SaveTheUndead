@@ -27,9 +27,10 @@ public class PlayerManager : MonoBehaviour
           CreatePlayer(PlayerType.SkelletionPlayer2);
     }
 
-    public void CreatePlayer(PlayerType type)
+    public Player CreatePlayer(PlayerType type)
     {
         GameObject go = Instantiate(playerPrefabs[(int)type]);
         player = go.GetComponent<Player>();
+        return player;
     }
 }

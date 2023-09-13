@@ -11,13 +11,20 @@ public class Burst : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Bullet isbullet = collision.GetComponentInParent<Bullet>();
-        if (isbullet != null)
+        Bullet bullet = collision.GetComponentInParent<Bullet>();
+        Player player = collision.GetComponentInParent<Player>();
+
+        if (bullet != null)
         {
-            isbullet.TakeDamage();
+            bullet.TakeDamage();
         }
+        else if (player != null)
+        {
+            player.TakeDamage();
+        }
+
     }
   
 }

@@ -14,12 +14,9 @@ public class Bomb : Bullet
                 HitBomb();
             }
             else
-            {
-                HitBomb();
-                
-                /*AttackCharacter();
-                BurstBomb();*/
-                // 폭탄을 쳐내지 못하고 터져버림
+            { 
+                AttackCharacter();
+                BurstBomb();
             }
         }
     }
