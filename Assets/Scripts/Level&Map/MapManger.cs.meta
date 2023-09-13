@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3c59267c2f36376408e5cb70ee2902ea
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tilemap: {instanceID: 0}
+  - rockTile: {fileID: 11400000, guid: d42a7305e3abd8c4c8d45c65840ba140, type: 2}
+  - objectToPlaceTilesAt: {instanceID: 0}
+  - TestRockPrefab: {fileID: 4241407386941873057, guid: 81976513db8d26b47b2231a6c59026b1,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
