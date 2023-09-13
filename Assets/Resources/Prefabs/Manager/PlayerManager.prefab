@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6755493492704209955
 MonoBehaviour:
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabs:
-  - {fileID: 1199338071631048390, guid: df47af94db7976d47b6ddf007af96976, type: 3}
-  - {fileID: 3162715530890982592, guid: 2bb8b087e4e58844388d1f933fafbc12, type: 3}
-  - {fileID: 7708884321514068154, guid: 84480e9b1cba8134f85a8530ddcd9c2e, type: 3}
-  - {fileID: 6889092794856810019, guid: c36c6c04c292c554fbcf80287d02a62d, type: 3}
-  - {fileID: 8172836331277531772, guid: b7dac7431edc291498182416cd2817dc, type: 3}
+  - {fileID: 2352733874770112181, guid: df47af94db7976d47b6ddf007af96976, type: 3}
+  - {fileID: 6638022843583505874, guid: 2bb8b087e4e58844388d1f933fafbc12, type: 3}
+  - {fileID: 4842267570270569267, guid: 84480e9b1cba8134f85a8530ddcd9c2e, type: 3}
+  - {fileID: 9145989438511157088, guid: c36c6c04c292c554fbcf80287d02a62d, type: 3}
+  - {fileID: 7374106015577677678, guid: b7dac7431edc291498182416cd2817dc, type: 3}
