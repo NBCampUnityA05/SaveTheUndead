@@ -6,6 +6,13 @@ public class Player : MonoBehaviour, ICharacter
     [SerializeField] private float speed;
     public int Hp { get { return hp; } }
     public float Speed { get { return speed; } }
+
+    public bool IsAttack { get; private set; }
+
+    private void Start()
+    {
+        IsAttack = false;
+    }
     public void AttackCharacter()
     {
         // 플레이어 불릿을 생성   
