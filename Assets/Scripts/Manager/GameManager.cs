@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
         isGameOver = false;
 
         AudioManager.instance.PlayBgm(false);
-        Debug.Log("BGM ReStart!!!");
         AudioManager.instance.PlayBgm(true);
 
         for (int i = 0; i < 36; i++)
@@ -90,11 +89,13 @@ public class GameManager : MonoBehaviour
 
     public void HitPlayer()
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Hit);
         PrintLife(player.Hp);
     }
 
     public void TakePotion()
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Range);
         PrintLife(player.Hp);
     }
 
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayBgm(false);
         Time.timeScale = 0f;
         resultUI.SetActive(true);
-
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Win);
         if (!PlayerPrefs.HasKey("highScore"))
         {
             PlayerPrefs.SetInt("highScore", (int)score);
