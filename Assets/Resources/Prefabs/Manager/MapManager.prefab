@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9194156241447826455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5518105962998242692}
+  - component: {fileID: 6715571412839332812}
+  m_Layer: 0
+  m_Name: MapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5518105962998242692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194156241447826455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6715571412839332812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194156241447826455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c59267c2f36376408e5cb70ee2902ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  tiles:
+  - {fileID: 11400000, guid: 083cf91eb34aa4f4cac83885d9fd3e4c, type: 2}
+  - {fileID: 11400000, guid: 8a719a2809aaba446ade6e50a810972e, type: 2}
+  - {fileID: 11400000, guid: 6d0505ec1c56c1d4095bab7b53d3f8ad, type: 2}
+  - {fileID: 11400000, guid: 9bee733469e274143a4004e18a40197e, type: 2}
+  - {fileID: 11400000, guid: 26c4ba419aeec434a8a309006cb5d1a6, type: 2}
+  - {fileID: 11400000, guid: f034e891239f5344dac7eb11c6e18da1, type: 2}
+  rockTile: {fileID: 11400000, guid: d42a7305e3abd8c4c8d45c65840ba140, type: 2}
+  circleDiameterA: 35
+  circleDiameterB: 35
+  objectToPlaceTilesAt: {fileID: 0}
+  TestRockPrefab: {fileID: 4241407386941873057, guid: 81976513db8d26b47b2231a6c59026b1,
+    type: 3}
+  repeatInterval: 5
